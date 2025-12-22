@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendário de Pedais e Passeios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0f172a; }
+
+    .galeria-img {
+      border-radius: 0.75rem;
+      cursor: pointer;
+      object-fit: cover;
+      width: 100%;
+      height: 160px;
+      transition: transform 0.2s;
+    }
+
+    .galeria-img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="text-slate-100">
+
+  <div class="max-w-5xl mx-auto p-6">
+
+    <!-- TÍTULO -->
+	<h1 class="text-3xl font-bold mb-2 text-center">Rota do Pedall</h1>
+    <h1 class="text-3xl font-bold mb-2 text-center">
+      🚴 Calendário de Pedais & Passeios
+    </h1>
+    <p class="text-slate-300 mb-6 text-center">Agenda pública de pedais, trilhas e passeios. Clique em um evento para ver detalhes.</p>
+
+    <!-- CALENDÁRIO -->
+    <div class="bg-slate-800 rounded-2xl shadow-lg p-4 mb-16">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=rotadopedall%40gmail.com&ctz=America%2FRecife"
+        style="border:0"
+        width="100%"
+        height="600"
+        frameborder="0"
+        scrolling="no">
+      </iframe>
+    </div>
+	
+	<div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="bg-slate-800 p-4 rounded-xl">
+        <h2 class="font-semibold text-lg">📍 Como participar</h2>
+        <p class="text-slate-300 text-sm mt-2 text-justify">Escolha um evento no calendário, confira local, horário e nível do pedal e insira seu nome na lista que circula no grupo do WhatsApp.</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl">
+        <h2 class="font-semibold text-lg">⏱️ Níveis</h2>
+        <p class="text-slate-300 text-sm mt-2">Leve · Moderado · Avançado · Trilhas técnicas</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl">
+        <h2 class="font-semibold text-lg">📲 Contato</h2>
+        <p class="text-slate-300 text-sm mt-2">Instagram: <strong>@rotadopedall</strong></p>
+		<p class="text-slate-300 text-sm mt-2">YouTube: <strong>@rotadopedall</strong></p>
+		
+      </div>
+    </div>
+	<p>
+
+    <!-- GALERIA -->
+    <section>
+      <h2 class="text-2xl font-bold text-center mb-4 mt-7">📸 Galeria de Fotos</h2>
+
+      <!-- ECO PEDAL -->
+      <h3 class="text-xl font-semibold mb-4">🌱 Eco Pedal</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <img src="LINK_MEGA_1" class="galeria-img">
+        <img src="LINK_MEGA_2" class="galeria-img">
+        <img src="LINK_MEGA_3" class="galeria-img">
+        <img src="LINK_MEGA_4" class="galeria-img">
+      </div>
+
+      <!-- TRILHAS -->
+      <h3 class="text-xl font-semibold mb-4">⛰️ Trilhas</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <img src="https://raw.githubusercontent.com/mdn/learning-area/main/html/multimedia-and-embedding/images-in-html/dinosaur.jpg" class="galeria-01">
+        <img src="https://drive.google.com/file/d/1nRKnsNEKX1z7mZszaJY3D0ghduPn8fyQ/view?usp=drive_link" class="galeria-02">
+        <img src="LINK_MEGA_7" class="galeria-img">
+        <img src="LINK_MEGA_8" class="galeria-img">
+      </div>
+
+      <!-- PASSEIOS -->
+      <h3 class="text-xl font-semibold mb-4">🚴 Passeios</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="LINK_MEGA_9" class="galeria-img">
+        <img src="LINK_MEGA_10" class="galeria-img">
+        <img src="LINK_MEGA_11" class="galeria-img">
+        <img src="LINK_MEGA_12" class="galeria-img">
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-slate-400 text-sm mt-16">
+      © 2025 • Calendário de Pedais • @rotadopedall
+    </footer>
+
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+    <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-xl">
+  </div>
+
+  <script>
+    document.querySelectorAll('.galeria-img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.remove('hidden');
+        document.getElementById('lightbox').classList.add('flex');
+      });
+    });
+
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    });
+  </script>
+
+</body>
+</html>
